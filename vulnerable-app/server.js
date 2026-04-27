@@ -11,7 +11,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { 
         httpOnly: false, // VULNERABILITY: Document.cookie can read this (XSS risk)
-        sameSite: false  // VULNERABILITY: Browser may send this cookie on cross-site POST requests
+        sameSite: 'lax'  // VULNERABILITY: Browser may send this cookie on cross-site POST requests
     }
 }));
 
